@@ -1,0 +1,58 @@
+---
+title: "presentation"
+author: "Jessie Xu"
+date: "2021/10/8"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source(file = "wrangling_code.R", echo = TRUE)  
+source(file = "visualization_function.R", echo = TRUE)
+```
+
+## Overview
+
+- Background: There is a popular saying that women with a bachelor's degree are far less likely to be unmarried at the time they give birth than are less educated women.(https://www.pewresearch.org/social-trends/2013/05/10/record-share-of-new-mothers-are-college-educated/)
+
+- Target: Explore if there is a relationship between the mean years of school attended by woman and the birthrate.
+
+- Data Source:https://www.gapminder.org/data/
+
+- Two indicators: 
+
+  (1) *birthrate*: births per 1000 population
+  
+  (2) *schoolyears*: the mean years of school attended, females aged 25+
+
+
+## General situation of women schoolyears in 5 continents
+```{r}
+generalplot("schoolyears")
+```
+
+## General situation of birthrate in 5 continents
+```{r}
+generalplot("birthrate")
+```
+
+## Explanation and Comparison:
+- There are some obvious trend
+
+(1)Horizontally, the mean years of school attended of women are increasing in all continents, while the mean birth rate of each continents tells an opposite trends.
+
+(2)Vertically, contines where women spend more time in education have lower birth rates.
+
+(3)It is worth noting that the collapse in Asian birth rates may be linked to China's one-child policy, which was introduced in 1980.
+
+
+## Different situation in Africa and Europe
+```{r}
+relationplot( "Africa", "Europe")
+```
+
+
+## Explanation and Comparison:
+
+- Europe is the continent which has highest mean schoolyears value and lowest birthrate, while  on the contrary, Africa is the one which has the lowest mean schoolyears value and highest birthrate.
+- We can see there is some features in the plot, and can tell that there must be some relationship between birthrate and the number of years women attend school. But it would be nonobjective to say that they have a causal relationship, since other factors like economic indicators and some social pressure may have same pattern if we plot them with birthrate.
