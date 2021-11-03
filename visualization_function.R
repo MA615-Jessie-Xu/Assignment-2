@@ -5,13 +5,16 @@ generalplot <- function(indicator){
   if(indicator == "birthrate"){
     ggplot(data = finetidy) +
       geom_smooth(method = 'loess',formula=y~x, mapping = aes(x = year, y = birthrate, group = continent, color = continent),se = FALSE)+
+      expand_limits(x=2010, y = 50) +
       labs(title = "the birthrate of each continent")
   }
   else if(indicator == "schoolyears"){
     ggplot(data = finetidy) +
       geom_smooth(method = 'loess',formula=y~x, mapping = aes(x = year, y = schoolyears, group = continent, color = continent),se = FALSE)+
+      expand_limits(x=2010, y = 12) + 
+      scale_y_continuous(breaks = c(3,6,9,12)) +
       labs(title = "mean years of school attended by woman")
-      }
+  }
   else{
     stop("warning: indicator does not exist. ")
   }
